@@ -8,3 +8,6 @@ next-env.d.ts
 *.tsbuildinfo
 .vercel
 .DS_Store
+
+.vercel
+.env*

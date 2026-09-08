@@ -1,5 +1,7 @@
 # ヒイラギ
 
+**本番URL: https://hiiragi-topaz.vercel.app**
+
 欲しい商品と、その商品が売られているページを登録しておくと、
 **在庫の復活・希望価格への値下がり・販売開始予定の接近**を定期的に確認して、
 アプリの中でお知らせする道具です。
@@ -111,8 +113,8 @@ db/schema.sql           テーブル定義
 
 ## 関連ドキュメント
 
+- [USER_ACTIONS.md](USER_ACTIONS.md) — りおさんにお願いする操作（残りは最初のアカウント作成だけ）
 - [SETUP.md](SETUP.md) — 最初の準備（環境変数、データベース、デプロイ）
 - [TECHNICAL_DECISIONS.md](TECHNICAL_DECISIONS.md) — なぜこの構成にしたか、無料枠の確認結果
-- [USER_ACTIONS.md](USER_ACTIONS.md) — りおさんにお願いする操作だけをまとめたもの
 - [TEST_REPORT.md](TEST_REPORT.md) — 動作確認の結果
 - [TROUBLESHOOTING.md](TROUBLESHOOTING.md) — うまくいかないときに見るところ
