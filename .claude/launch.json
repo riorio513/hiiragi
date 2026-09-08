@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "hiiragi",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "serve"],
+      "port": 3600,
+      "env": { "PATH": "C:\Program Files\nodejs;${env:PATH}" }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+name: 定期監視
+
+# 無料枠だけで定期実行するための仕組み。
+# GitHub Actions のスケジュール実行から、アプリの監視エンドポイントを叩くだけ。
+# （公開リポジトリの Actions は無料。実行時間も1回あたり数十秒で済む）
+on:
+  schedule:
+    # 5分ごと。GitHub 側の混雑で数分ずれることがある（仕様）。
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 監視を1回まわす
+        env:
+          APP_URL: ${{ secrets.APP_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$APP_URL" ] || [ -z "$CRON_SECRET" ]; then
+            echo "APP_URL / CRON_SECRET が設定されていません" >&2
+            exit 1
+          fi
+          code=$(curl -sS -o /tmp/out.json -w "%{http_code}" \
+            -X POST "$APP_URL/api/cron/check?limit=25" \
+            -H "x-cron-secret: $CRON_SECRET" \
+            --max-time 120)
+          echo "HTTP $code"
+          cat /tmp/out.json
+          echo
+          test "$code" = "200"

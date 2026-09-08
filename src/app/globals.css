@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-holly-50: #f1f8f4;
+  --color-holly-100: #dcefe2;
+  --color-holly-200: #b9dfc7;
+  --color-holly-400: #4f9d6d;
+  --color-holly-600: #1f6b45;
+  --color-holly-700: #175136;
+  --color-berry-500: #d94a4a;
+  --color-berry-600: #b93a3a;
+  --font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", system-ui,
+    sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: #f6f7f5;
+  color: #1b2420;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-white p-4 shadow-sm ring-1 ring-black/5;
+  }
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  .btn-danger {
+    @apply inline-flex min-h-11 items-center justify-center gap-1 rounded-xl px-4 py-2.5 text-center text-sm font-bold transition active:scale-[0.99] disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-holly-600 text-white hover:bg-holly-700;
+  }
+  .btn-secondary {
+    @apply bg-holly-50 text-holly-700 ring-1 ring-holly-200 hover:bg-holly-100;
+  }
+  .btn-ghost {
+    @apply bg-white text-gray-700 ring-1 ring-gray-200 hover:bg-gray-50;
+  }
+  .btn-danger {
+    @apply bg-white text-berry-600 ring-1 ring-berry-500/30 hover:bg-red-50;
+  }
+  .field {
+    @apply w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-base outline-none focus:border-holly-600 focus:ring-2 focus:ring-holly-200;
+  }
+  .label {
+    @apply mb-1 block text-sm font-bold text-gray-700;
+  }
+  .hint {
+    @apply mt-1 text-xs leading-relaxed text-gray-500;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold;
+  }
+}
