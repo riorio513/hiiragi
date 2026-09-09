@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
+import UsageGuideModal from "@/components/UsageGuideModal";
 
 export default async function LandingPage() {
   const user = await getCurrentUser();
@@ -14,6 +15,10 @@ export default async function LandingPage() {
         欲しい商品と、その商品が売られているページを登録しておくと、
         在庫の復活や希望価格への値下がりを定期的に確認して、アプリの中でお知らせします。
       </p>
+
+      <div className="mt-3">
+        <UsageGuideModal />
+      </div>
 
       <div className="card mt-6">
         <h2 className="text-base font-bold">できること</h2>
